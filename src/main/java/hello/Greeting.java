@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by Deus@ZJU on 16/2/10.
  */
-public class Greeting implements Serializable {
+public class Greeting {
 
     private final long id;
     private final String content;
