@@ -22,3 +22,6 @@ build/
 ToyCMS.iml
 toycms.ipr
 toycms.iws
+
+# Vim
+*.swp
