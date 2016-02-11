@@ -17,12 +17,11 @@ public class GreetingController {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
-    @RequestMapping("/greeting")
+    @RequestMapping(value = "/greeting")
     @ResponseBody
-    public String greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        new Greeting(counter.incrementAndGet(),
+    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
+        return new Greeting(counter.incrementAndGet(),
                 String.format(template, name));
-        return "Hello World!";
     }
 }
 
