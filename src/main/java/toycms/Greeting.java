@@ -1,6 +1,4 @@
-package hello;
-
-import java.io.Serializable;
+package toycms;
 
 /**
  * Created by Deus@ZJU on 16/2/10.

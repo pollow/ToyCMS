@@ -1,4 +1,4 @@
-package hello;
+package toycms;
 
 /**
  * Created by Deus@ZJU on 16/2/10.
