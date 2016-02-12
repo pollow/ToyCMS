@@ -1,10 +1,9 @@
-group 'com.changyuerugs'
-version '1.0-SNAPSHOT'
+group 'com.changyuerugs.'
+version '0.1-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'war'
-// apply plugin: 'spring-boot'
 
 repositories {
     mavenCentral()
@@ -36,11 +35,7 @@ dependencies {
     // runtime 'javax.servlet:jstl:1.1.2'
 
     // Spring Framework
-    // compile 'org.springframework:spring-context:4.2.4.RELEASE'
-    // compile 'org.springframework:spring-core:4.2.4.RELEASE'
     compile 'org.springframework:spring-webmvc:4.2.4.RELEASE'
-    // compile 'org.springframework:spring-web:4.2.4.RELEASE'
-    // compile 'org.springframework.boot:spring-boot-starter-web'
 }
 
 task wrapper(type: Wrapper) {
