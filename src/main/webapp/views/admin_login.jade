@@ -1,0 +1,20 @@
+extends admin_layout
+
+block content
+    div.page
+        form(action='/admin/login', method='POST')
+            table.login
+                tr
+                    td
+                        strong username:
+                    td
+                        input(name='username')
+                tr
+                    td
+                        strong password:
+                    td
+                        input(type='password', name='password')
+                tr
+                    td
+                        input(type='submit', value='Login')
+

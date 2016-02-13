@@ -1,0 +1,40 @@
+extends admin_layout
+
+block content
+    div.company-info.page
+        form(method='POST', action='', enctype='multipart/form-data')
+            h3 Slide Images
+            - for(var i = 0; i < company.img_set.length; i++) {
+            img(src='#{company.img_set[i]}', style='max-width:400px;')
+            input(type='hidden', value='#{company.img_set[i]}', name='img_set')
+            a(href='/admin/delimg?img=#{encodeURIComponent(company.img_set[i])}') Delete
+            - }
+            br
+            input(type='file', name='img')
+            br
+            input(type='button', value='Add').add#img-add
+            h3 Description
+            // textarea(name='description') #{company.description}
+            textarea(name='description', style='height:500px; width: 690px')#editor_2 #{company.description}
+            script(charset='utf-8', src='/editor/kindeditor-min.js')
+            script(charset='utf-8', src='/editor/lang/zh_CN.js')
+            script
+                | KindEditor.ready(function(K) {
+                |         window.editor = K.create('#editor_2', {uploadJson: '/editor/upload_json'});
+                | });
+            h3 Table Information
+            - for(var i = 0; i < company.table_info.length; i++) {
+            div.pair
+                input(name='table_info_key', value='#{company.table_info[i][0]}').pair-info-key
+                input(name='table_info_value', value='#{company.table_info[i][1]}').pair-info-value
+            - }
+            input(type='button', value='Add').add#table-add
+            h3 Contact
+            - for(var i = 0; i < company.contact.length; i++) {
+            div.pair
+                input(name='contact_key', value='#{company.contact[i][0]}').pair-info-key
+                input(name='contact_value', value='#{company.contact[i][1]}').pair-info-value
+            - }
+            input(type='button', value='Add').add#contact-add
+            hr
+            button(type='submit').send Submit

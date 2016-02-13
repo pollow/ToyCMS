@@ -1,0 +1,78 @@
+extend layout
+
+block content
+    div.page
+        div.catagory.block
+            div.exhibit-title
+                span Supplier Profile
+            ul.around
+                li
+                    h3 Suzhou Changyue Imp. & Exp. Co., Ltd.
+                - for(var i = 0; i < company.table_info.length; i++) {
+                li
+                    strong #{company.table_info[i][0]} :
+                    span #{' '+company.table_info[i][1]}
+                - }
+                - for(var i = 0; i < company.contact.length; i++) {
+                li
+                    strong #{company.contact[i][0]} :
+                    span #{' '+company.contact[i][1]}
+                - }
+            div.exhibit-title
+                span Catagory
+            ul.around
+                - for(var i = 0; i < groups.length; i++) {
+                - if ( !groups[i].father ) {
+                - if ( gg[groups[i]._id].sons.length !== 0 ) {
+                li.father-group-list(val='#{groups[i]._id}')
+                    a(href='/group/#{groups[i]._id}') !{groups[i].group_name}(!{group_size[groups[i]._id] || 0})
+                        span(style='float: right') >
+                    ul.sub-group-list(id='#{groups[i]._id}')
+                        - for( var j = 0; j < gg[groups[i]._id].sons.length; j++) {
+                        - var tmp = gg[groups[i]._id].sons[j];
+                        li
+                            a(href='/group/#{tmp}') !{gg[tmp].name}(!{group_size[tmp] || 0})
+                        - }
+                - } else {
+                li
+                    a(href='/group/#{groups[i]._id}') !{groups[i].group_name}(!{group_size[groups[i]._id] || 0})
+                - }
+                - }
+                - }
+        div.product-detail-wrapper.block
+            div.exhibit-title
+                span Product Detail
+            div.product-detail.around
+                h2 #{product.name}
+                div.brief
+                    a(href='#{product.img}', target='_blank')
+                        img(src='#{product.img}')
+                    table.major-info
+                        tr
+                            td
+                                a(href='#')#contact-now Contact Now
+                                span  /
+                                a(href='#')#ask-price  Get Latest Price!
+                        - for(var i = 0; i < product.major_info.length; i++) {
+                        tr
+                            td.key #{product.major_info[i][0]}:
+                            td.value #{product.major_info[i][1]}
+                        - }
+                hr.delimiter
+                table.detail-info
+                    - for(var i = 0; i < product.detail_info.length; i+=2) {
+                    tr
+                        td.key #{product.detail_info[i][0]}:
+                        td.value #{product.detail_info[i][1]}
+                        - if( product.detail_info[i+1] ) {
+                        td.key #{product.detail_info[i+1][0]}:
+                        td.value #{product.detail_info[i+1][1]}
+                        - }
+                    - }
+                hr.delimiter
+                div !{product.description}
+    div#price-form
+        iframe(src='/price/#{product._id}', height='90%', width='100%', frameborder=0)
+    div#contact-form
+        iframe(src='/contactnow/#{product._id}', height='90%', width='100%', frameborder=0)
+

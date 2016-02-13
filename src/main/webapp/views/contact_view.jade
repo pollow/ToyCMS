@@ -1,0 +1,64 @@
+extends layout
+
+block content
+    div.page
+        div.catagory.block
+            div.exhibit-title
+                span Catagory
+            ul.around
+                - for(var i = 0; i < groups.length; i++) {
+                - if ( !groups[i].father ) {
+                - if ( gg[groups[i]._id].sons.length !== 0 ) {
+                li.father-group-list(val='#{groups[i]._id}')
+                    a(href='/group/#{groups[i]._id}') !{groups[i].group_name}(!{group_size[groups[i]._id] || 0})
+                        span(style='float: right') >
+                    ul.sub-group-list(id='#{groups[i]._id}')
+                        - for( var j = 0; j < gg[groups[i]._id].sons.length; j++) {
+                        - var tmp = gg[groups[i]._id].sons[j];
+                        li
+                            a(href='/group/#{tmp}') !{gg[tmp].name}(!{group_size[tmp] || 0})
+                        - }
+                - } else {
+                li
+                    a(href='/group/#{groups[i]._id}') !{groups[i].group_name}(!{group_size[groups[i]._id] || 0})
+                - }
+                - }
+                - }
+        div.contact.around.block
+            h2 Contact
+            div.merchant
+                div.merchant-portrait
+                    img(src="/img/portrait.png")
+                div.merchant-name
+                    h4 Ms. Fengjuan Zhang
+                    span General Manager
+            table
+                tbody
+                - for(var i = 0; i < company.contact.length; i++) {
+                    tr
+                        td.key #{company.contact[i][0]}:
+                        td.value #{company.contact[i][1]}
+                - }
+            div.clearfix
+        div.board-wrapper.block
+            div.exhibit-title
+                span Send inquiry
+            div.board-content.around
+                p Please leave your message and question if you are interested in my products:
+                form(action='/index/message', method='POST')
+                    table
+                        tbody
+                            tr
+                                td Name
+                                td
+                                    input(name='author')
+                            tr
+                                td Contact
+                                td
+                                    input(name='contact')
+                            tr
+                                td(valign='top') Message:&nbsp
+                                td
+                                    textarea(name='content')
+                                    button(type='submit').send Send
+

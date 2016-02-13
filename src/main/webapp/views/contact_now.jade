@@ -1,0 +1,89 @@
+doctype html
+html
+    head
+        title China Carpet Tiles, Cowhide Patch Rugs (NP-053) - Suzhou Changyue Imp. &amp; Exp. Co., Ltd..
+        meta(name='Keywords', content='Suzhou Changyue Imp. &amp; Exp. Co., Ltd., China Carpet Tiles, Cowhide Patch Rugs (NP-053), Cut &amp; Loop Pile Hotel Carpets')
+        meta(name='Description', content='China Manufacturer, Trading Company of Carpet Tiles, Cowhide Patch Rugs (NP-053), Cut &amp; Loop Pile Hotel Carpets - Suzhou Changyue Imp. &amp; Exp. Co., Ltd.')
+        link(rel='stylesheet', href='/css/base.css')
+        link(rel='stylesheet', href='/css/header.css')
+        link(rel='stylesheet', href='/css/index.css')
+        link(rel='stylesheet', href='/css/company.css')
+        link(rel='stylesheet', href='/css/group.css')
+        link(rel='stylesheet', href='/css/product.css')
+        link(rel='stylesheet', href='/css/coin-slider-styles.css')
+        link(rel='stylesheet', href='/css/footer.css')
+        link(rel='stylesheet', href='/css/jquery-ui-1.10.4.min.css')
+        script(type='text/javascript', src='/js/jquery-1.11.1.min.js')
+        script(type='text/javascript', src='/js/jquery-ui-1.10.4.min.js')
+        script(type='text/javascript', src='/js/coin-slider.min.js')
+        script $(document).ready(function() {$('#choose-unit').change(function() { if ($(this).val() == 'Other') { $('#other').css('display', 'inline');$(this).attr('name', ''); $('#other').attr('name', 'unit'); } else { $('#other').css('display', none); $(this).attr('name', 'unit'); $('#other').attr('name', ''); } })})
+    body(style='background-color: white;')
+        div(style="display:none")
+            | <script src="http://s4.cnzz.com/z_stat.php?id=1000525584&web_id=1000525584" language="JavaScript"></script>
+        div#price-info
+            form(action='/price', method='POST')
+                table
+                    tr
+                        td.left Inquiry
+                        td
+                            textarea(name='content')
+                            input(name='id', value='#{id}', style='display:none')
+                    tr
+                        td.left Country/Region
+                        td
+                            input(name='country')
+                    tr
+                        td.left
+                            span.ess *
+                            span Contact Person
+                        td
+                            select(name='call')
+                                option Mr.
+                                option Mrs.
+                            input(name='name').shorter
+                    tr
+                        td.left
+                            span.ess *
+                            span Bussiness Mail
+                        td
+                            input(name='mail')
+                    tr
+                        td.left
+                            span.ess *
+                            span Company Name
+                        td
+                            input(name='company')
+                    tr
+                        td.left
+                            span.ess *
+                            span Telephone
+                        td
+                            input(name='tel1')#tel1
+                            span -
+                            input(name='tel2')#tel2
+                            span -
+                            input(name='tel3')#tel3
+                    tr
+                        td.left Purchase Quantity
+                        td
+                            input(name='quantity').shorter
+                            select(name='unit')#choose-unit
+                                option Pieces
+                                option Bags
+                                option Boxes
+                                option Foot
+                                option Meter
+                                option Pairs
+                                option Reams
+                                option Rolls
+                                option Sets
+                                option Square Meters
+                                option Square Feet
+                                option Tons
+                                option Yard
+                                option Other
+                            input#other.shorter
+                    tr
+                        td.left
+                        td
+                            button(type='submit').send Submit

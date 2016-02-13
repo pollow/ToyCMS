@@ -1,0 +1,24 @@
+extends admin_layout
+
+block content
+    div.page
+        table.message
+            tr
+                th Achieve
+                th Content
+            - for(var i = 0; i < messages.length; i++) {
+            tr
+                td.achieve
+                    a(href='/admin/message/achieve?id=#{messages[i]._id}') Achieve
+                td
+                    p
+                        strong Author: #{messages[i].author}
+                    p
+                        strong Contact: #{messages[i].contact}
+                    p
+                        strong Date: #{messages[i].time}
+                    p
+                        strong Conteng:
+                    p #{messages[i].content}
+            - }
+

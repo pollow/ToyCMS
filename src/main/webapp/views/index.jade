@@ -1,0 +1,33 @@
+extends layout
+
+block content
+    div.page
+        div#slider
+            img(src='/img/slider1.jpg')
+            img(src='/img/slider2.jpg')
+            img(src='/img/slider3.jpg')
+        div.exhibit.block
+            div.exhibit-title
+                span Highlighted Exhibits
+                a(href="/group", style="color:inherit; text-decoration: none;")
+                    i view more
+            div.exhibit-content
+                table
+                    tbody
+                        tr
+                            td
+                        - for(var i = 0; i < products.length; i+=4) {
+                        tr
+                            - for(var j = 0; j < 4 && i+j < products.length; j++) {
+                            td(align='center')
+                                a(href='/product/#{products[i+j]._id}')
+                                    img(src='#{products[i+j].img}')
+                                div.desc
+                                    strong #{products[i+j].name}
+                                    - var str = products[i+j].short_info.map(function(ele) { return ele[0] + ' : ' + ele[1] }).join('<br \\>')
+                                    p !{str}
+                            - }
+                        -}
+
+
+

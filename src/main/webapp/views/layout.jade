@@ -1,0 +1,76 @@
+doctype html
+html
+    head
+        title China Carpet Tiles, Cowhide Patch Rugs (NP-053) - Suzhou Changyue Imp. &amp; Exp. Co., Ltd..
+        meta(name='Keywords', content='Suzhou Changyue Imp. &amp; Exp. Co., Ltd., China Carpet Tiles, Cowhide Patch Rugs (NP-053), Cut &amp; Loop Pile Hotel Carpets')
+        meta(name='Description', content='China Manufacturer, Trading Company of Carpet Tiles, Cowhide Patch Rugs (NP-053), Cut &amp; Loop Pile Hotel Carpets - Suzhou Changyue Imp. &amp; Exp. Co., Ltd.')
+        link(rel='stylesheet', href='/css/base.css')
+        link(rel='stylesheet', href='/css/header.css')
+        link(rel='stylesheet', href='/css/index.css')
+        link(rel='stylesheet', href='/css/company.css')
+        link(rel='stylesheet', href='/css/group.css')
+        link(rel='stylesheet', href='/css/product.css')
+        link(rel='stylesheet', href='/css/coin-slider-styles.css')
+        link(rel='stylesheet', href='/css/footer.css')
+        link(rel='stylesheet', href='/css/jquery-ui-1.10.4.min.css')
+        script(type='text/javascript', src='/js/jquery-1.11.1.min.js')
+        script(type='text/javascript', src='/js/jquery-ui-1.10.4.min.js')
+        script(type='text/javascript', src='/js/coin-slider.min.js')
+        script(type='text/javascript', src='/js/script.js')
+    body
+        div.header
+            div.title-wraper
+                div.title-inner
+                    a(href='http://www.changyuerugs.com').title Suzhou Changyue Imp. & Exp. Co., Ltd.
+                    // a(href='http://szchangyue.en.made-in-china.com/').outlink
+                        img(src='/img/mic-logo.png')
+                    a(href='http://szchangyue.en.made-in-china.com' target='_blank' alt='Suzhou Changyue Imp. & Exp. Co., Ltd.' rel='nofollow').outlink
+                        img(src='http://www.focuschina.com/images/new_icon/AS_1.gif' border='0' hidefocus='true')
+
+            div.nav-wrapper
+                div.nav
+                    ul.menu
+                        li.menu-item#index
+                            a(href='/index') Home
+                        li.menu-item.pull-down#group
+                            a(href='/group') Product
+                                img(src='/img/moe.png')
+                            ul#pull-down-menu
+                                - for(var i = 0; i < groups.length; i++) {
+                                    - if (!groups[i].father) {
+                                    li.selected
+                                        a(href='/group/#{groups[i]._id}') #{groups[i].group_name}(#{group_size[groups[i]._id] || 0})
+                                    - }
+                                - }
+                        li.menu-item#contact
+                            a(href='/contact') Contact
+                        li.menu-item#company
+                            a(href='/company') About
+                    div.search
+                        form(action='http://www.google.com/search', method='GET')
+                            input(type='text', name='q')
+                            input(type='hidden', name=ie, value='utf-8')
+                            input(type='hidden', name='oe', value='utf-8')
+                            input(type='hidden', name='hl', value='en-US')
+                            input(type='hidden', name='domains', value='www.changyuerugs.com')
+                            input(type='hidden', name='sitesearch', value='www.changyuerugs.com')
+                            button(type='submit') Search
+
+
+        block content
+
+        div.clearfix
+        div.footer
+            div.footer-content.page
+                div.copyright.block
+                    p Copyright © 2014 Suzhou <a href="/admin/index" style="text-decoration: none; color: inherit">Changyue</a> Imp. & Exp. Co., Ltd. All rights reserved.
+        div(style="display:none")
+            | <script src="http://s4.cnzz.com/z_stat.php?id=1000525584&web_id=1000525584" language="JavaScript"></script>
+        <![if !IE6]>
+        div.act-box
+            a(href='#').mail#send-mail
+            a(href='#top').top
+        div#mail-form
+            iframe(src='/contactnow', height='90%', width='100%', frameborder=0)
+        <![endif]>
+

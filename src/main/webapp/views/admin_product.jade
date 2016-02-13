@@ -1,0 +1,55 @@
+extends admin_layout
+
+block content
+    div.page
+        input(type='button', value='Add Product', onclick='location="/admin/product/add"').add#pop
+        form.tools(action='/admin/group/add', method='POST')
+            input(name='group_name')
+            span belong to
+            select(name='id')
+                option(value='')
+                - for ( gid in groups ) {
+                - if ( groups[gid].father ) {
+                option(value='#{gid}') #{groups[groups[gid].father].name} -> #{groups[gid].name}
+                - } else {
+                option(value='#{gid}') #{groups[gid].name}
+                - } }
+            button(type='submit') Add Group
+        br
+        form.tools(action='/admin/group/delete', method='POST')
+            select(name='id')
+                - for ( gid in groups ) {
+                - if ( groups[gid].father ) {
+                option(value='#{gid}') #{groups[groups[gid].father].name} -> #{groups[gid].name}
+                - } else {
+                option(value='#{gid}') #{groups[gid].name}
+                - } }
+            button(type='submit') Delete Group
+        form.tools(action='/admin/group/rename', method='POST')
+            input(name='group_name')
+            select(name='id')
+                - for ( gid in groups ) {
+                - if ( groups[gid].father ) {
+                option(value='#{gid}') #{groups[groups[gid].father].name} -> #{groups[gid].name}
+                - } else {
+                option(value='#{gid}') #{groups[gid].name}
+                - } }
+            button(type='submit') Rename Group
+
+        form(action='/admin/product/delete', method='POST')
+            table.product-info
+                tr
+                    td
+                    td Product Name
+                    td Group Name
+                    td Action
+                - for(var i = 0; i < products.length; i++) {
+                tr
+                    td
+                        input(type='checkbox', value='#{products[i]._id}', name='id')
+                    td #{products[i].name}
+                    td #{(groups[products[i].group_id] || '').name}
+                    td
+                        a(href='/admin/product/update/#{products[i]._id}', value='#{products[i]._id}').update Update
+                - }
+            button(type='submit') Delete

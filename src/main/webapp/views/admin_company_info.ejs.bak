@@ -1,0 +1,28 @@
+<form enctype="multipart/form-data" action="#" method="POST">
+    <textarea name="description" id="" cols="30" rows="10"><%=doc.description%></textarea>
+    <p class="a">Table Info</p>
+    <table>
+        <% for(var i=0; i<doc.table_info.length;i++) { %>
+        <tr>
+            <td><input type="text" name="table_info_key[]" id="" value="<%=doc.table_info[i][0]%>"/>
+            <td><input type="text" name="table_info_value[]" id="" value="<%=doc.table_info[i][1]%>"/>
+        </tr>
+        <% } %>
+    </table>
+    <p class="a">Contact</p>
+    <table>
+        <% for(var i=0; i<doc.contact.length;i++) { %>
+        <tr>
+            <td><input type="text" name="contact_key[]" id="" value="<%=doc.contact[i][0]%>"/>
+            <td><input type="text" name="contact_value[]" id="" value="<%=doc.contact[i][1]%>"/>
+        </tr>
+        <% } %>
+    </table>
+    <ul>
+        <% for(var i=0; i<doc.img_set.length;i++) { %>
+        <li><img src="<%=doc.img_set[i]%>" alt=""/></li>
+        <% } %>
+    </ul>
+    <button type="submit">Submit</button>
+</form>
+<pre> <%=JSON.stringify(doc)%> </pre>
