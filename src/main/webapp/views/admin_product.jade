@@ -1,4 +1,4 @@
-extends admin_layout
+// extends admin_layout
 
 block content
     div.page
@@ -8,32 +8,32 @@ block content
             span belong to
             select(name='id')
                 option(value='')
-                - for ( gid in groups ) {
-                - if ( groups[gid].father ) {
-                option(value='#{gid}') #{groups[groups[gid].father].name} -> #{groups[gid].name}
-                - } else {
-                option(value='#{gid}') #{groups[gid].name}
-                - } }
+                 //-for ( gid in groups ) {
+                 //-if ( groups[gid].father ) {
+                option(value='${gid}') ${groups[groups[gid].father].name} -> ${groups[gid].name}
+                 //-} else {
+                option(value='${gid}') ${groups[gid].name}
+                 //-} }
             button(type='submit') Add Group
         br
         form.tools(action='/admin/group/delete', method='POST')
             select(name='id')
-                - for ( gid in groups ) {
-                - if ( groups[gid].father ) {
-                option(value='#{gid}') #{groups[groups[gid].father].name} -> #{groups[gid].name}
-                - } else {
-                option(value='#{gid}') #{groups[gid].name}
-                - } }
+                 //-for ( gid in groups ) {
+                 //-if ( groups[gid].father ) {
+                option(value='${gid}') ${groups[groups[gid].father].name} -> ${groups[gid].name}
+                 //-} else {
+                option(value='${gid}') ${groups[gid].name}
+                 //-} }
             button(type='submit') Delete Group
         form.tools(action='/admin/group/rename', method='POST')
             input(name='group_name')
             select(name='id')
-                - for ( gid in groups ) {
-                - if ( groups[gid].father ) {
-                option(value='#{gid}') #{groups[groups[gid].father].name} -> #{groups[gid].name}
-                - } else {
-                option(value='#{gid}') #{groups[gid].name}
-                - } }
+                 //-for ( gid in groups ) {
+                 //-if ( groups[gid].father ) {
+                option(value='${gid}') ${groups[groups[gid].father].name} -> ${groups[gid].name}
+                 //-} else {
+                option(value='${gid}') ${groups[gid].name}
+                 //-} }
             button(type='submit') Rename Group
 
         form(action='/admin/product/delete', method='POST')
@@ -43,13 +43,13 @@ block content
                     td Product Name
                     td Group Name
                     td Action
-                - for(var i = 0; i < products.length; i++) {
+                 //-for(var i = 0; i < products.length; i++) {
                 tr
                     td
-                        input(type='checkbox', value='#{products[i]._id}', name='id')
-                    td #{products[i].name}
-                    td #{(groups[products[i].group_id] || '').name}
+                        input(type='checkbox', value='${products[i]._id}', name='id')
+                    td ${products[i].name}
+                    td ${(groups[products[i].group_id] || '').name}
                     td
-                        a(href='/admin/product/update/#{products[i]._id}', value='#{products[i]._id}').update Update
-                - }
+                        a(href='/admin/product/update/${products[i]._id}', value='${products[i]._id}').update Update
+                 //-}
             button(type='submit') Delete

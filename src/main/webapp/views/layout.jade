@@ -22,7 +22,7 @@ html
             div.title-wraper
                 div.title-inner
                     a(href='http://www.changyuerugs.com').title Suzhou Changyue Imp. & Exp. Co., Ltd.
-                    // a(href='http://szchangyue.en.made-in-china.com/').outlink
+                     //a(href='http://szchangyue.en.made-in-china.com/').outlink
                         img(src='/img/mic-logo.png')
                     a(href='http://szchangyue.en.made-in-china.com' target='_blank' alt='Suzhou Changyue Imp. & Exp. Co., Ltd.' rel='nofollow').outlink
                         img(src='http://www.focuschina.com/images/new_icon/AS_1.gif' border='0' hidefocus='true')
@@ -36,12 +36,12 @@ html
                             a(href='/group') Product
                                 img(src='/img/moe.png')
                             ul#pull-down-menu
-                                - for(var i = 0; i < groups.length; i++) {
-                                    - if (!groups[i].father) {
+                                //-for(var i = 0; i < groups.length; i++) {
+                                    //-if (!groups[i].father) {
                                     li.selected
-                                        a(href='/group/#{groups[i]._id}') #{groups[i].group_name}(#{group_size[groups[i]._id] || 0})
-                                    - }
-                                - }
+                                        a(href='/group/${groups[i]._id}') ${groups[i].group_name}(${group_size[groups[i]._id] || 0})
+                                    //-}
+                                //-}
                         li.menu-item#contact
                             a(href='/contact') Contact
                         li.menu-item#company

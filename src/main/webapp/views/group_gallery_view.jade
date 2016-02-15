@@ -1,4 +1,4 @@
-extends layout
+// extends layout
 
 block content
     div.page
@@ -6,45 +6,44 @@ block content
             div.exhibit-title
                 span Catagory
             ul.around
-                - for(var i = 0; i < groups.length; i++) {
-                - if ( !groups[i].father ) {
-                - if ( gg[groups[i]._id].sons.length !== 0 ) {
-                li.father-group-list(val='#{groups[i]._id}')
-                    a(href='/group/#{groups[i]._id}') !{groups[i].group_name}(!{group_size[groups[i]._id] || 0})
+                //-for(var i = 0; i < groups.length; i++) {
+                //-if ( !groups[i].father ) {
+                //-if ( gg[groups[i]._id].sons.length !== 0 ) {
+                li.father-group-list(val='${groups[i]._id}')
+                    a(href='/group/${groups[i]._id}') ${groups[i].group_name}(${group_size[groups[i]._id] || 0})
                         span(style='float: right') >
-                    ul.sub-group-list(id='#{groups[i]._id}')
-                        - for( var j = 0; j < gg[groups[i]._id].sons.length; j++) {
-                        - var tmp = gg[groups[i]._id].sons[j];
+                    ul.sub-group-list(id='${groups[i]._id}')
+                        //-for( var j = 0; j < gg[groups[i]._id].sons.length; j++) {
+                        //-var tmp = gg[groups[i]._id].sons[j];
                         li
-                            a(href='/group/#{tmp}') !{gg[tmp].name}(!{group_size[tmp] || 0})
-                        - }
-                - } else {
+                            a(href='/group/${tmp}') ${gg[tmp].name}(${group_size[tmp] || 0})
+                        //-}
+                //-} else {
                 li
-                    a(href='/group/#{groups[i]._id}') !{groups[i].group_name}(!{group_size[groups[i]._id] || 0})
-                - }
-                - }
-                - }
+                    a(href='/group/${groups[i]._id}') ${groups[i].group_name}(${group_size[groups[i]._id] || 0})
+                //-}
+                //-}
+                //-}
         div.list-wrapper.block
             div.list.around
                 div.list-setting
                     div.list-view View:
-                        a(href='/setview/list/#{current}').icon-view.icon-list
-                        a(href='/setview/gallery/#{current}').icon-view.icon-gallery
+                        a(href='/setview/list/${current}').icon-view.icon-list
+                        a(href='/setview/gallery/${current}').icon-view.icon-gallery
                 table.list-table
                     tbody
-                        - for(var i = 0; i < products.length ; i+=3) {
+                        // -for(var i = 0; i < products.length ; i+=3) {
                         tr
-                            - for(var j = 0; j < 3 && i+j < products.length; j++) {
+                            //-for(var j = 0; j < 3 && i+j < products.length; j++) {
                             td(align='center')
-                                a(href='/product/#{products[i+j]._id}')
-                                    img(src='#{products[i+j].img}')
+                                a(href='/product/${products[i+j]._id}')
+                                    img(src='${products[i+j].img}')
                                 div.desc
-                                    strong #{products[i+j].name}
-                            - }
-                        -}
+                                    strong ${products[i+j].name}
+                            //-}
+                        // -}
                 div.list-num
-                    - for(var i = 1; i <= pages; i++) {
-                    a(href='/group/#{current}?page=#{i}') #{i}
-                    -}
-                    a(href='/group/#{current}?page=#{Number(current_page)+1}') Next >
-
+                    //-for(var i = 1; i <= pages; i++) {
+                    a(href='/group/${current}?page=${i}') ${i}
+                    // -}
+                    a(href='/group/${current}?page=${Number(current_page)+1}') Next >

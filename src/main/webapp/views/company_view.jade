@@ -1,4 +1,4 @@
-extends layout
+//extends layout
 
 block content
     div.page
@@ -6,37 +6,37 @@ block content
             div.exhibit-title
                 span Catagory
             ul.around
-                - for(var i = 0; i < groups.length; i++) {
-                - if ( !groups[i].father ) {
-                - if ( gg[groups[i]._id].sons.length !== 0 ) {
-                li.father-group-list(val='#{groups[i]._id}')
-                    a(href='/group/#{groups[i]._id}') !{groups[i].group_name}(!{group_size[groups[i]._id] || 0})
+                //-for(var i = 0; i < groups.length; i++) {
+                //-if ( !groups[i].father ) {
+                //-if ( gg[groups[i]._id].sons.length !== 0 ) {
+                li.father-group-list(val='${groups[i]._id}')
+                    a(href='/group/${groups[i]._id}') ${groups[i].group_name}(${group_size[groups[i]._id] || 0})
                         span(style='float: right') >
-                    ul.sub-group-list(id='#{groups[i]._id}')
-                        - for( var j = 0; j < gg[groups[i]._id].sons.length; j++) {
-                        - var tmp = gg[groups[i]._id].sons[j];
+                    ul.sub-group-list(id='${groups[i]._id}')
+                        //-for( var j = 0; j < gg[groups[i]._id].sons.length; j++) {
+                        //-var tmp = gg[groups[i]._id].sons[j];
                         li
-                            a(href='/group/#{tmp}') !{gg[tmp].name}(!{group_size[tmp] || 0})
-                        - }
-                - } else {
+                            a(href='/group/${tmp}') ${gg[tmp].name}(${group_size[tmp] || 0})
+                        //-}
+                //-} else {
                 li
-                    a(href='/group/#{groups[i]._id}') !{groups[i].group_name}(!{group_size[groups[i]._id] || 0})
-                - }
-                - }
-                - }
+                    a(href='/group/${groups[i]._id}') ${groups[i].group_name}(${group_size[groups[i]._id] || 0})
+                //-}
+                //-}
+                //-}
         div.about.around.block
             h2 Company Profile
-            // description
-            div.description.block !{company.description.replace('\n', '<br \\>')}
-            // table_info
+             //description
+            div.description.block ${company.description.replace('\n', '<br \\>')}
+             //table_info
             div.table-info
                 table
                     tbody
-                    - for(var i = 0; i < company.table_info.length; i++) {
+                    //-for(var i = 0; i < company.table_info.length; i++) {
                         tr
-                            td.key(nowrap) #{company.table_info[i][0]}: &nbsp&nbsp&nbsp&nbsp
-                            td.value #{company.table_info[i][1]}
-                    - }
+                            td.key(nowrap) ${company.table_info[i][0]}: &nbsp&nbsp&nbsp&nbsp
+                            td.value ${company.table_info[i][1]}
+                    //-}
 
         div.board-wrapper.block
             div.exhibit-title

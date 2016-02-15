@@ -39,9 +39,9 @@ html
             input(type='button', value='Add').add.detail-add
             h3 Group
             select(name='group_id')
-                - for ( gid in groups ) {
-                option(value='#{gid}') #{groups[gid].name}
-                - }
+                //-for ( gid in groups ) {
+                option(value='${gid}') ${groups[gid].name}
+                //-}
             h3 Description
             textarea(name='description', style='height:500px; width: 690px')#editor_1
             script(charset='utf-8', src='/editor/kindeditor-min.js')

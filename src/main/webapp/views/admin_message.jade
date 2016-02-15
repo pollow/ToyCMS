@@ -1,4 +1,4 @@
-extends admin_layout
+// extends admin_layout
 
 block content
     div.page
@@ -6,19 +6,18 @@ block content
             tr
                 th Achieve
                 th Content
-            - for(var i = 0; i < messages.length; i++) {
+            // - for(var i = 0; i < messages.length; i++) {
             tr
                 td.achieve
-                    a(href='/admin/message/achieve?id=#{messages[i]._id}') Achieve
+                    a(href='/admin/message/achieve?id=${messages[i]._id}') Achieve
                 td
                     p
-                        strong Author: #{messages[i].author}
+                        strong Author: ${messages[i].author}
                     p
-                        strong Contact: #{messages[i].contact}
+                        strong Contact: ${messages[i].contact}
                     p
-                        strong Date: #{messages[i].time}
+                        strong Date: ${messages[i].time}
                     p
                         strong Conteng:
-                    p #{messages[i].content}
-            - }
-
+                    p ${messages[i].content}
+             //- }

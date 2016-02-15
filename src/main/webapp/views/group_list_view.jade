@@ -1,4 +1,4 @@
-extends layout
+// extends layout
 
 block content
     div.page
@@ -6,47 +6,47 @@ block content
             div.exhibit-title
                 span Catagory
             ul.around
-                - for(var i = 0; i < groups.length; i++) {
-                - if ( !groups[i].father ) {
-                - if ( gg[groups[i]._id].sons.length !== 0 ) {
-                li.father-group-list(val='#{groups[i]._id}')
-                    a(href='/group/#{groups[i]._id}') !{groups[i].group_name}(!{group_size[groups[i]._id] || 0})
+                //-for(var i = 0; i < groups.length; i++) {
+                //-if ( !groups[i].father ) {
+                //-if ( gg[groups[i]._id].sons.length !== 0 ) {
+                li.father-group-list(val='${groups[i]._id}')
+                    a(href='/group/${groups[i]._id}') ${groups[i].group_name}(${group_size[groups[i]._id] || 0})
                         span(style='float: right') >
-                    ul.sub-group-list(id='#{groups[i]._id}')
-                        - for( var j = 0; j < gg[groups[i]._id].sons.length; j++) {
-                        - var tmp = gg[groups[i]._id].sons[j];
+                    ul.sub-group-list(id='${groups[i]._id}')
+                        //-for( var j = 0; j < gg[groups[i]._id].sons.length; j++) {
+                        //-var tmp = gg[groups[i]._id].sons[j];
                         li
-                            a(href='/group/#{tmp}') !{gg[tmp].name}(!{group_size[tmp] || 0})
-                        - }
-                - } else {
+                            a(href='/group/${tmp}') ${gg[tmp].name}(${group_size[tmp] || 0})
+                        //-}
+                //-} else {
                 li
-                    a(href='/group/#{groups[i]._id}') !{groups[i].group_name}(!{group_size[groups[i]._id] || 0})
-                - }
-                - }
-                - }
+                    a(href='/group/${groups[i]._id}') ${groups[i].group_name}(${group_size[groups[i]._id] || 0})
+                //-}
+                //-}
+                //-}
         div.list-wrapper.block
             div.list.around
                 div.list-setting
                     div.list-view View:
-                        a(href='/setview/list/#{current}').icon-view.icon-list
-                        a(href='/setview/gallery/#{current}').icon-view.icon-gallery
+                        a(href='/setview/list/${current}').icon-view.icon-list
+                        a(href='/setview/gallery/${current}').icon-view.icon-gallery
                 div.list-content
-                    - for(var i = 0; i < products.length; i+=1) {
+                    //-for(var i = 0; i < products.length; i+=1) {
                     div.list-item
                         div.item-img
-                            a(href='/product/#{products[i]._id}')
-                                img(src='#{products[i].img}')
+                            a(href='/product/${products[i]._id}')
+                                img(src='${products[i].img}')
                         div.item-desc
                             strong Product Name
                             br
-                            - for(var j = 0; j < products[i].short_info.length; j++) {
-                            span key #{products[i].short_info[j][0]} : value #{products[i].short_info[j][1]}
+                            //-for(var j = 0; j < products[i].short_info.length; j++) {
+                            span key ${products[i].short_info[j][0]} : value ${products[i].short_info[j][1]}
                             br
-                            - }
+                            //-}
                         div.clearfix
-                    -}
+                    // -}
                 div.list-num
-                    - for(var i = 1; i <= pages; i++) {
-                    a(href='/group/#{current}?page=#{i}') #{i}
-                    -}
-                    a(href='/group/#{current}?page=#{Number(current_page)+1}') Next >
+                    //-for(var i = 1; i <= pages; i++) {
+                    a(href='/group/${current}?page=${i}') ${i}
+                    // -}
+                    a(href='/group/${current}?page=${Number(current_page)+1}') Next >

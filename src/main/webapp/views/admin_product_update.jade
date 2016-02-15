@@ -18,41 +18,41 @@ html
     body
         form(action='/admin/product/update', method='POST', enctype='multipart/form-data', style='width:700px; margin: 0 auto')
             h1 Add a new product
-            input(type='hidden', value='#{product._id}', name='id')
-            img(src='#{product.img}', style='width: 100%')
+            input(type='hidden', value='${product._id}', name='id')
+            img(src='${product.img}', style='width: 100%')
             h3 Name
-            input(name='name', value='#{product.name}')
+            input(name='name', value='${product.name}')
             h3 Short Information
-            - for(var j = 0; j < product.short_info.length; j++) {
+            //-for(var j = 0; j < product.short_info.length; j++) {
             div.pair
-                input(name='short_info_key', value='#{product.short_info[j][0]}')
-                input(name='short_info_value', value='#{product.short_info[j][1]}')
-            - }
+                input(name='short_info_key', value='${product.short_info[j][0]}')
+                input(name='short_info_value', value='${product.short_info[j][1]}')
+            //-}
             input(type='button', value='Add').add.short-add
             h3 Major Information
-            - for(var j = 0; j < product.major_info.length; j++) {
+            //-for(var j = 0; j < product.major_info.length; j++) {
             div.pair
-                input(name='major_info_key', value='#{product.major_info[j][0]}')
-                input(name='major_info_value', value='#{product.major_info[j][1]}')
-            - }
+                input(name='major_info_key', value='${product.major_info[j][0]}')
+                input(name='major_info_value', value='${product.major_info[j][1]}')
+            //-}
             input(type='button', value='Add').add.major-add
             h3 Detail Information
-            - for(var j = 0; j < product.detail_info.length; j++) {
+            //-for(var j = 0; j < product.detail_info.length; j++) {
             div.pair
-                input(name='detail_info_key', value='#{product.detail_info[j][0]}')
-                input(name='detail_info_value', value='#{product.detail_info[j][1]}')
-            - }
+                input(name='detail_info_key', value='${product.detail_info[j][0]}')
+                input(name='detail_info_value', value='${product.detail_info[j][1]}')
+            //-}
             input(type='button', value='Add').add.detail-add
             h3 Group
             select(name='group_id')
-                - for ( gid in groups ) {
-                - if ( gid == product.group_id ) {
-                option(value='#{gid}', selected='true') #{groups[gid].name}
-                - } else {
-                option(value='#{gid}') #{groups[gid].name}
-                - } }
+                //-for ( gid in groups ) {
+                //-if ( gid == product.group_id ) {
+                option(value='${gid}', selected='true') ${groups[gid].name}
+                //-} else {
+                option(value='${gid}') ${groups[gid].name}
+                //-} }
             h3 Description
-            textarea(name='description', style='height:500px; width: 690px')#editor_1 #{product.description}
+            textarea(name='description', style='height:500px; width: 690px')#editor_1 ${product.description}
             script(charset='utf-8', src='/editor/kindeditor-min.js')
             script(charset='utf-8', src='/editor/lang/zh_CN.js')
             script
@@ -61,7 +61,7 @@ html
                 | });
 
             h3 Mark
-            input(name='mark', value='#{product.mark}')
+            input(name='mark', value='${product.mark}')
             br
             br
             button(type='submit').send#new_send Submit
